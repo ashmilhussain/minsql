@@ -52,7 +52,7 @@ services:
  mc:
   image: minio/mc
   depends_on:
-   - minio
+   - minio-engine
   entrypoint: >
     /bin/sh -c "
     echo /usr/bin/mc config host a http://minio-engine:9000 minio minio123;
@@ -61,7 +61,7 @@ services:
  minsql:
   image: minio/minsql
   depends_on:
-   - minio
+   - minio-engine
    - mc
   ports:
    - "9999:9999"
